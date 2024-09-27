@@ -9,7 +9,7 @@ const LeftPanel = () => {
     isCelsius ? temp : Math.round((temp * 9) / 5 + 32);
 
   return (
-    <div className="lg:w-1/3 lg:pr-8 mb-8 lg:mb-0">
+    <div className="lg:w-1/3 lg:pr-8 mb-8 lg:mb-0  p-4 sm:p-6 md:p-8">
       <div className="flex justify-between items-center mb-8">
         <div className="relative w-full max-w-xs flex items-center">
           <input

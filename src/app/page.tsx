@@ -12,7 +12,7 @@ const WeatherDashboard = () => {
 
 
   return (
-    <div className="bg-white rounded-3xl shadow-lg max-w-7xl mx-auto my-8 p-4 sm:p-6 md:p-8">
+    <div className="bg-white rounded-3xl shadow-lg max-w-7xl mx-auto my-8">
       <div className="flex flex-col lg:flex-row">
         {/* Left Panel */}
        <LeftPanel />
