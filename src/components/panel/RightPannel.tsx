@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Search, MapPin } from "lucide-react";
 import Image from "next/image";
+import DayWiseCards from "./rightPanel/DayWiseCards";
 
 const RightPanel = () => {
   const [isCelsius, setIsCelsius] = useState(true);
@@ -9,7 +10,7 @@ const RightPanel = () => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const temperatures = [15, 12, 9, 8, 5, 4, 3];
   const weatherIcons = ["☀️", "🌤️", "🌧️", "🌧️", "❄️", "☀️", "☀️"];
-  const convertTemp = (temp) =>
+  const convertTemp = (temp:number) =>
     isCelsius ? temp : Math.round((temp * 9) / 5 + 32);
 
   
@@ -44,7 +45,7 @@ const RightPanel = () => {
           </button>
         </div>
       </div>
-
+{/* 
       <div className="grid grid-cols-7 gap-4 mb-8">
         {days.map((day, index) => (
           <div
@@ -61,7 +62,8 @@ const RightPanel = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
+      <DayWiseCards/>
 
       <div>
         <h3 className="text-xl font-semibold mb-4 text-black">

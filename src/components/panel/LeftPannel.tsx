@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const LeftPanel = () => {
   const [isCelsius, setIsCelsius] = useState(true);
-  const convertTemp = (temp) =>
+  const convertTemp = (temp:number) =>
     isCelsius ? temp : Math.round((temp * 9) / 5 + 32);
 
   return (

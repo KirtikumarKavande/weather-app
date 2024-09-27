@@ -13,7 +13,7 @@ const WeatherDashboard = () => {
   const fetchData=useFetch()
   const fetchForecast=async()=>{
     const data=await fetchData("v1","forecast.json?q=london&days=7&aqi=yes")
-    dispatch(setForecast(data))
+   data && dispatch(setForecast(data))
   }
   
   useEffect(()=>{

@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const forecastSlice = createSlice({
   name: "forecast",
   initialState: {
-    forecast: {},
+    weatherForecast: {},
   },
   reducers: {
     setForecast: (state, action) => {
-      state.forecast = action.payload;
+      state.weatherForecast = action.payload;
     },
   },
 });
