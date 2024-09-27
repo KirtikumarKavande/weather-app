@@ -4,6 +4,7 @@ import { Search, MapPin } from "lucide-react";
 import Image from "next/image";
 import DayWiseCards from "./rightPanel/DayWiseCards";
 import CelsiusFahrenheitToggle from "./rightPanel/UnitToggle";
+import { weatherUnits } from "@/utilitis/contsant";
 const RightPanel = () => {
   const [isCelsius, setIsCelsius] = useState(true);
 
@@ -24,25 +25,8 @@ const RightPanel = () => {
             Week
           </button>
         </div>
-        {/* <div className="flex items-center space-x-2">
-          <button
-            className={`px-2 py-1 rounded-full text-sm ${
-              isCelsius ? "bg-black text-white" : "bg-gray-200 text-gray-600"
-            }`}
-            onClick={() => setIsCelsius(true)}
-          >
-            °C
-          </button>
-          <button
-            className={`px-2 py-1 rounded-full text-sm ${
-              !isCelsius ? "bg-black text-white" : "bg-gray-200 text-gray-600"
-            }`}
-            onClick={() => setIsCelsius(false)}
-          >
-            °F
-          </button>
-        </div> */}
-        <CelsiusFahrenheitToggle units={["°C", "°F"]} />
+     
+<CelsiusFahrenheitToggle units={weatherUnits} />
       </div>
 
       <DayWiseCards />

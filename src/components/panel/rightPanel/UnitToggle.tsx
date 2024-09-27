@@ -1,14 +1,19 @@
-import React, { useState } from "react";
 
+import { setActiveUnit } from "@/store/slices/unitToggleSlice";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 interface ToggleProps {
   units: string[]; 
 }
 
 const DynamicUnitToggle: React.FC<ToggleProps> = ({ units }) => {
-  const [activeUnit, setActiveUnit] = useState(units[0]); 
+  const{weatherUnit}=useSelector((state: any) => state.unitToggle);
+const dispatch= useDispatch()
+
 
   const handleToggle = (unit: string) => {
-    setActiveUnit(unit); 
+    dispatch(setActiveUnit(unit))
   };
 
   return (
@@ -17,7 +22,7 @@ const DynamicUnitToggle: React.FC<ToggleProps> = ({ units }) => {
         <button
           key={index}
           className={`px-2 py-1 rounded-full text-sm ${
-            activeUnit === unit ? "bg-black text-white" : "bg-gray-200 text-gray-600"
+            weatherUnit === unit ? "bg-black text-white" : "bg-gray-200 text-gray-600"
           }`}
           onClick={() => handleToggle(unit)}
         >
