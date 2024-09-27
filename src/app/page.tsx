@@ -5,11 +5,15 @@ import RightPanel from '../components/panel/RightPannel';
 import useFetch from "../hooks/useFetch"
 import { Provider } from 'react-redux';
 import store from '@/store/store';
+import { useDispatch } from 'react-redux';
+import { setForecast } from '@/store/slices/forcastSlice';
 
 const WeatherDashboard = () => {
+ const dispatch= useDispatch()
   const fetchData=useFetch()
   const fetchForecast=async()=>{
     const data=await fetchData("v1","forecast.json?q=london&days=7&aqi=yes")
+    dispatch(setForecast(data))
   }
   
   useEffect(()=>{
@@ -19,7 +23,6 @@ const WeatherDashboard = () => {
   
 
   return (
-    <Provider store={store}>
     <div className="bg-white rounded-3xl  shadow-lg max-w-7xl mx-auto my-8">
       <div className="flex flex-col  lg:flex-row">
         {/* Left Panel */}
@@ -29,7 +32,6 @@ const WeatherDashboard = () => {
        
       </div>
     </div>
-    </Provider>
   );
 };
 
