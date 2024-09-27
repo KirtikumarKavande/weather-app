@@ -8,10 +8,14 @@ export interface Condition {
     condition: Condition;
     maxtemp_c: number;
     mintemp_c: number;
+    maxtemp_f: number;
+    mintemp_f: number;
   }
   
   export interface ForecastDay {
     day: Day;
   }
   
-  
+  export interface ToggleProps {
+    units: string[]; 
+  }

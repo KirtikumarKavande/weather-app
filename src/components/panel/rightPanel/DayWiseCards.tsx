@@ -5,7 +5,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const DayWiseCards = () => {
-  const { weatherForecast } = useSelector((state: any) => state.forecast);
+  const { weatherForecast } = useSelector((state: { forecast: { weatherForecast: any } }) => state.forecast);
+  const { weatherUnit } = useSelector((state: { unitToggle: { weatherUnit: string } }) => state.unitToggle);
+
   let forecastData = weatherForecast?.forecast?.forecastday;
   const today = new Date();
   return (
@@ -28,9 +30,9 @@ const DayWiseCards = () => {
                   className="mx-auto"
                 />
                 <div className="text-sm font-medium flex justify-center space-x-1">
-                  <span>{Math.round(day?.maxtemp_c)}°</span>
+                  <span>{Math.round(weatherUnit==="C" ?day?.maxtemp_c:day?.maxtemp_f)}°</span>
                   <span className="text-gray-400 text-sm block">
-                    <span>{Math.round(day?.mintemp_c)}°</span>
+                    <span>{Math.round(weatherUnit==="C" ?day?.mintemp_c:day?.mintemp_f)}°</span>
                   </span>
                 </div>
               </div>
