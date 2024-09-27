@@ -3,19 +3,23 @@ import React, { useEffect, useState } from 'react';
 import LeftPanel from "../components/panel/LeftPannel";
 import RightPanel from '../components/panel/RightPannel';
 import useFetch from "../hooks/useFetch"
+import { Provider } from 'react-redux';
+import store from '@/store/store';
 
 const WeatherDashboard = () => {
-
   const fetchData=useFetch()
+  const fetchForecast=async()=>{
+    const data=await fetchData("v1","forecast.json?q=london&days=7&aqi=yes")
+  }
+  
   useEffect(()=>{
-   async function abc(){
-      const data=await fetchData("v1","forecast.json?q=london&days=7&aqi=yes")
-      console.log(data)
-    }
-    abc()
-   
+    fetchForecast()
   },[])
+
+  
+
   return (
+    <Provider store={store}>
     <div className="bg-white rounded-3xl  shadow-lg max-w-7xl mx-auto my-8">
       <div className="flex flex-col  lg:flex-row">
         {/* Left Panel */}
@@ -25,6 +29,7 @@ const WeatherDashboard = () => {
        
       </div>
     </div>
+    </Provider>
   );
 };
 
