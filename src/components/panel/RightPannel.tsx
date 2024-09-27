@@ -3,17 +3,15 @@ import React, { useEffect, useState } from "react";
 import { Search, MapPin } from "lucide-react";
 import Image from "next/image";
 import DayWiseCards from "./rightPanel/DayWiseCards";
-
+import CelsiusFahrenheitToggle from "./rightPanel/UnitToggle";
 const RightPanel = () => {
   const [isCelsius, setIsCelsius] = useState(true);
 
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const temperatures = [15, 12, 9, 8, 5, 4, 3];
   const weatherIcons = ["☀️", "🌤️", "🌧️", "🌧️", "❄️", "☀️", "☀️"];
-  const convertTemp = (temp:number) =>
+  const convertTemp = (temp: number) =>
     isCelsius ? temp : Math.round((temp * 9) / 5 + 32);
-
-  
 
   return (
     <div className="lg:w-2/3 lg:pl-8 bg-[#F6F6F8] rounded-r-3xl p-4 sm:p-6 md:p-8 ">
@@ -26,7 +24,7 @@ const RightPanel = () => {
             Week
           </button>
         </div>
-        <div className="flex items-center space-x-2">
+        {/* <div className="flex items-center space-x-2">
           <button
             className={`px-2 py-1 rounded-full text-sm ${
               isCelsius ? "bg-black text-white" : "bg-gray-200 text-gray-600"
@@ -43,27 +41,11 @@ const RightPanel = () => {
           >
             °F
           </button>
-        </div>
+        </div> */}
+        <CelsiusFahrenheitToggle units={["°C", "°F"]} />
       </div>
-{/* 
-      <div className="grid grid-cols-7 gap-4 mb-8">
-        {days.map((day, index) => (
-          <div
-            key={day}
-            className="bg-white text-black rounded-2xl p-3 text-center"
-          >
-            <div className="text-sm mb-2">{day}</div>
-            <div className="text-2xl mb-2">{weatherIcons[index]}</div>
-            <div className="text-sm font-medium flex justify-center">
-              <span>{convertTemp(temperatures[index])}°</span>
-              <span className="text-gray-400 text-sm block">
-                {convertTemp(temperatures[index] - 3)}°
-              </span>
-            </div>
-          </div>
-        ))}
-      </div> */}
-      <DayWiseCards/>
+
+      <DayWiseCards />
 
       <div>
         <h3 className="text-xl font-semibold mb-4 text-black">
