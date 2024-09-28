@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 const DynamicUnitToggle: React.FC<ToggleProps> = ({ units }) => {
-  const { weatherUnit } = useSelector((state: any) => state.unitToggle);
+  const { weatherUnit } = useSelector((state: any) => state.weatherSettings);
   const dispatch = useDispatch();
   const handleToggle = (unit: string) => {
     dispatch(setActiveUnit(unit));

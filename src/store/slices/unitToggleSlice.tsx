@@ -1,16 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const unitToggleSlice = createSlice({
+const weatherSettings = createSlice({
   name: "forecast",
   initialState: {
     weatherUnit: "C",
+    dayIndex:0
   },
+
   reducers: {
     setActiveUnit: (state, action) => {
       state.weatherUnit = action.payload;
     },
+    setDayIndex: (state, action) => {
+      state.dayIndex = action.payload;
+    },
   },
 });
 
-export default unitToggleSlice.reducer;
-export const { setActiveUnit } = unitToggleSlice.actions;
+export default weatherSettings.reducer;
+export const { setActiveUnit,setDayIndex } = weatherSettings.actions;

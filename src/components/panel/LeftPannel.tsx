@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import TodayWeather from "./leftPanel/Weather";
+import Weather from "./leftPanel/Weather";
 import SearchLocation from "./leftPanel/SearchLocation";
 import { MapPin } from "lucide-react";
 import { useSelector } from "react-redux";
@@ -10,13 +10,11 @@ const LeftPanel = () => {
   const convertTemp = (temp: number) =>
     isCelsius ? temp : Math.round((temp * 9) / 5 + 32);
   const { weatherForecast } = useSelector((state: { forecast: { weatherForecast: any } }) => state.forecast);
-  console.log("vishayard",weatherForecast)
 
   return (
     <div className="lg:w-1/3 lg:pr-8 mb-8 lg:mb-0  p-4 sm:p-6 md:p-8">
     <SearchLocation />
-
-      <TodayWeather />
+      <Weather  forecast={weatherForecast?.forecast?.forecastday}/>
 
       <div className="bg-gray-100 rounded-2xl p-4">
         <img
