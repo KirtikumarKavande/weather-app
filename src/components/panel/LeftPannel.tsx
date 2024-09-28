@@ -1,13 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import TodayWeather from "./leftPanel/TodayWeather";
+import TodayWeather from "./leftPanel/Weather";
 import SearchLocation from "./leftPanel/SearchLocation";
 import { MapPin } from "lucide-react";
+import { useSelector } from "react-redux";
 
 const LeftPanel = () => {
   const [isCelsius, setIsCelsius] = useState(true);
   const convertTemp = (temp: number) =>
     isCelsius ? temp : Math.round((temp * 9) / 5 + 32);
+  const { weatherForecast } = useSelector((state: { forecast: { weatherForecast: any } }) => state.forecast);
+  console.log("vishayard",weatherForecast)
 
   return (
     <div className="lg:w-1/3 lg:pr-8 mb-8 lg:mb-0  p-4 sm:p-6 md:p-8">
