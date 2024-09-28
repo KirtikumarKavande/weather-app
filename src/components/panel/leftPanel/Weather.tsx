@@ -9,7 +9,6 @@ const Weather = ({ forecast }: { forecast: object[] }) => {
       state.weatherSettings
   );
   let day = forecast && forecast[dayIndex]?.day;
-  console.log("vishayard", forecast && forecast[dayIndex]);
 
   return (
     <div className=" mb-8">

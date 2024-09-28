@@ -25,7 +25,7 @@ const DynamicUnitToggle: React.FC<ToggleProps> = ({ units }) => {
           {unit}
         </button>
       ))}
-    <div className="h-10 w-10 bg-gray-500 rounded-sm "></div>
+    <div className="h-10 w-10 bg-gray-300 rounded-sm "></div>
 
     </div>
 

@@ -21,7 +21,6 @@ const TodaysHighlights = () => {
     visibility: { value: "5.2", unit: "km", status: "Average" },
     airQuality: { value: "105", status: "Unhealthy" },
   };
-  console.log("over",weatherForecast)
 
   return (
     <div className="p-4">
