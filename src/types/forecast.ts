@@ -19,3 +19,9 @@ export interface Condition {
   export interface ToggleProps {
     units: string[]; 
   }
+
+ export interface level {
+    low: { range: [number, number]; message: string };
+    normal: { range: [number, number]; message: string };
+    unhealthy: { range: [number, number]; message: string };
+  }

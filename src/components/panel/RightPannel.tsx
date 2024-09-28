@@ -5,6 +5,7 @@ import Image from "next/image";
 import DayWiseCards from "./rightPanel/DayWiseCards";
 import CelsiusFahrenheitToggle from "./rightPanel/UnitToggle";
 import { weatherUnits } from "@/utilitis/contsant";
+import TodaysHighlights from "./rightPanel/TodaysHighlights";
 const RightPanel = () => {
   const [isCelsius, setIsCelsius] = useState(true);
 
@@ -25,104 +26,11 @@ const RightPanel = () => {
             Week
           </button>
         </div>
-     
-<CelsiusFahrenheitToggle units={weatherUnits} />
-      </div>
 
+        <CelsiusFahrenheitToggle units={weatherUnits} />
+      </div>
       <DayWiseCards />
-
-      <div>
-        <h3 className="text-xl font-semibold mb-4 text-black">
-          Today's Highlights
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            { title: "UV Index", value: "5", maxValue: "12", icon: "☀️" },
-            {
-              title: "Wind Status",
-              value: "7.70",
-              unit: "km/h",
-              direction: "WSW",
-              icon: "🌬️",
-            },
-            {
-              title: "Sunrise & Sunset",
-              sunrise: "6:35 AM",
-              sunset: "5:42 PM",
-              icon: "🌅",
-            },
-            {
-              title: "Humidity",
-              value: "12",
-              unit: "%",
-              status: "Normal",
-              icon: "💧",
-            },
-            {
-              title: "Visibility",
-              value: "5.2",
-              unit: "km",
-              status: "Average",
-              icon: "👁️",
-            },
-            {
-              title: "Air Quality",
-              value: "105",
-              status: "Unhealthy",
-              icon: "🌫️",
-            },
-          ].map((item, index) => (
-            <div key={index} className="bg-white p-4 rounded-2xl h-48">
-              <h4 className="text-lg text-gray-300 mb-2">{item.title}</h4>
-              <div className="flex items-center justify-between mb-2">
-                <div className="  text-black py-4">
-                  <span className="text-5xl"> {item.value}</span>
-                  {item.unit && (
-                    <span className="text-sm ml-1 ">{item.unit}</span>
-                  )}
-                </div>
-                {/* <div className="text-4xl">{item.icon}</div> */}
-              </div>
-              {item.maxValue && (
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div
-                    className="bg-yellow-400 h-2.5 rounded-full"
-                    style={{
-                      width: `${
-                        (parseInt(item.value) / parseInt(item.maxValue)) * 100
-                      }%`,
-                    }}
-                  ></div>
-                </div>
-              )}
-              {item.status && (
-                <div className="text-sm text-gray-600">{item.status}</div>
-              )}
-
-              {item.direction && (
-                <div className="flex space-x-3 items-center">
-                  {" "}
-                  <img
-                    width="18"
-                    height="18 "
-                    src="https://img.icons8.com/officel/80/near-me.png"
-                    alt="near-me"
-                  />{" "}
-                  <div className="text-sm pt-2 text-black font-[600]">
-                    {item.direction}
-                  </div>
-                </div>
-              )}
-              {item.sunrise && (
-                <div className="mt-2 text-xl text-black">
-                  <div>⬆️ {item.sunrise}</div>
-                  <div>⬇️ {item.sunset}</div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+      <TodaysHighlights />
     </div>
   );
 };
