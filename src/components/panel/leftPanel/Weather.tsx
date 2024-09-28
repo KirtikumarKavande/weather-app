@@ -9,7 +9,7 @@ const Weather = ({ forecast }: { forecast: object[] }) => {
       state.weatherSettings
   );
   let day = forecast && forecast[dayIndex]?.day;
-  console.log("vishayard", forecast &&forecast[dayIndex]);
+  console.log("vishayard", forecast && forecast[dayIndex]);
 
   return (
     <div className=" mb-8">
@@ -31,7 +31,8 @@ const Weather = ({ forecast }: { forecast: object[] }) => {
         </span>
       </div>
       <div className="text-xl text-left text-black mb-4">
-        {getDayOfWeek(forecast[dayIndex]?.date)}, <span className="text-gray-400">{getCurrentTime()}</span>
+        {getDayOfWeek(forecast && forecast[dayIndex]?.date)},{" "}
+        <span className="text-gray-400">{getCurrentTime()}</span>
       </div>
       <hr className="text-gray-400 my-6" />
       <div className="flex justify-left items-center text-gray-600 mb-4">
