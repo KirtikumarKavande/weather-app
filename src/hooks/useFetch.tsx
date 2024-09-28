@@ -3,7 +3,7 @@ const useFetch = () => {
   const getDataFromDB = async (
     apiVersion: string,
     url: string,
-    country:string | number="london"
+    country:string | number=localStorage.getItem("location")||"london"
   ) => {
     try {
       const res = await fetch(

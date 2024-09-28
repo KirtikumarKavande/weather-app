@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { Search, MapPin, Locate, LocateIcon } from "lucide-react";
 import TodayWeather from "./leftPanel/TodayWeather";
+import SearchLocation from "./leftPanel/SearchLocation";
+import { MapPin } from "lucide-react";
 
 const LeftPanel = () => {
   const [isCelsius, setIsCelsius] = useState(true);
@@ -10,21 +11,7 @@ const LeftPanel = () => {
 
   return (
     <div className="lg:w-1/3 lg:pr-8 mb-8 lg:mb-0  p-4 sm:p-6 md:p-8">
-      <div className="flex justify-between items-center mb-8">
-        <div className="relative w-full max-w-xs flex items-center">
-          <input
-            type="text"
-            placeholder="Search for places ..."
-            className="w-full pl-10 pr-4 py-2  rounded-full text-sm placeholder:text-black font-semibold"
-          />
-          <div>
-            <Search className="absolute left-3 top-2.5 text-black " size={17} />
-          </div>
-        </div>
-        <button className="p-2 bg-gray-100 rounded-full">
-          <LocateIcon size={20} className="text-black" />
-        </button>
-      </div>
+    <SearchLocation />
 
       <TodayWeather />
 
