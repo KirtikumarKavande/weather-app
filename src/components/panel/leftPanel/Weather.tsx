@@ -3,7 +3,7 @@ import { getCurrentTime, getDayOfWeek } from "@/utilitis/helper";
 import React from "react";
 import { useSelector } from "react-redux";
 
-const Weather = ({ forecast }: { forecast: object[] }) => {
+const Weather = ({ forecast }: { forecast: any }) => {
   const { weatherUnit, dayIndex } = useSelector(
     (state: { weatherSettings: { weatherUnit: string; dayIndex: number } }) =>
       state.weatherSettings
