@@ -10,7 +10,8 @@ const DynamicUnitToggle: React.FC<ToggleProps> = ({ units }) => {
     dispatch(setActiveUnit(unit));
   };
   return (
-    <div className="flex items-center space-x-2">
+    <div>
+    <div className="flex items-center space-x-4">
       {units.map((unit, index) => (
         <button
           key={index}
@@ -24,6 +25,10 @@ const DynamicUnitToggle: React.FC<ToggleProps> = ({ units }) => {
           {unit}
         </button>
       ))}
+    <div className="h-10 w-10 bg-gray-500 rounded-sm "></div>
+
+    </div>
+
     </div>
   );
 };
